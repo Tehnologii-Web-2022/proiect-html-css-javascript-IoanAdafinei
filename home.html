@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2_8zRStXeYqFYzc8oaUYzguQ9DHnt308&libraries=places"></script>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c797ff09ac.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>My Weather App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="scripts/script1.js"></script>
+    <h1>Weather APP</h1>
+    <div calss="subdiv2">
+      <div>
+        <form class="centered">
+          <input id="location-input" type="text" placeholder="e.g. Bucharest" />
+          <p></p>
+          <button type="submit">Get Weather</button>
+        </form>
+        <div id="weather-data">
+          <p class="centered">Loading weather data...</p>
+          <div hidden id="spinner"></div>
+        </div>
+      </div>
+      <div>
+        <div class="display_images"></div>
+      </div>
+    </div>
+
+    <footer class="copyright">
+      <p>Api provided by:</p>
+      <p><a href="https://openweathermap.org">Open Weather Map</a></p>
+      <p><a href="https://www.pexels.com">Pexels</a></p>
+      <p>&copy; 2023 Ioan Adafinei</p>
+
+    </footer>
+
+    <script>
+      const formElement = document.querySelector("form");
+      formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const location = document.querySelector("#location-input").value;
+        fetchWeatherData(location);
+      });
+
+      var options = {
+        types: ["(cities)"],
+      };
+
+      var input = document.getElementById("location-input");
+      var autocomplete = new google.maps.places.Autocomplete(input, options);
+    </script>
+  </body>
+</html>

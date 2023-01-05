@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Checker</title>
+</head>
+<body>
+
+<h1>Weather Checker</h1>
+
+<form>
+  <label for="city">Enter the name of a city:</label><br>
+  <input type="text" id="city" name="city"><br>
+  <button type="button" onclick="getWeather()">Check Weather</button>
+</form> 
+
+<div id="weather-output"></div>
+
+<script>
+  function getWeather() {
+    // Get the city name from the input field
+    var city = document.getElementById("city").value;
+
+    // Create the URL for the OpenWeatherMap API
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=351a7599b0398e628c3c643a1f8d4ac5";
+
+    // Make an HTTP request to the OpenWeatherMap API
+    var request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.onload = function() {
+      var data = JSON.parse(this.response);
+
+      if (request.status >= 200 && request.status < 400) {
+        // If the request was successful, display the weather data
+        var weatherOutput = document.getElementById("weather-output");
+        weatherOutput.innerHTML = "The weather in " + city + " is currently " + data.weather[0].description + ".";
+      } else {
+        // If the request was not successful, display an error message
+        var weatherOutput = document.getElementById("weather-output");
+        weatherOutput.innerHTML = "There was an error checking the weather for " + city + ".";
+      }
+    };
+
+    request.send();
+  }
+</script>
+
+</body>
+</html>
