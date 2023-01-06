@@ -19,7 +19,7 @@
     <div id="root"></div>
     <script src="scripts/script1.js"></script>
     <h1>Weather APP</h1>
-    <div calss="subdiv2">
+    <div>
       <div>
         <form class="centered">
           <input id="location-input" type="text" placeholder="e.g. Bucharest" />
@@ -33,6 +33,8 @@
       </div>
       <div>
         <div class="display_images"></div>
+        <div class="centered"><p class="large">5 Day forecast</p></div>
+        <div id="weather-forecast" class="subdiv5"></div>
       </div>
     </div>
 
@@ -40,8 +42,13 @@
       <p>Api provided by:</p>
       <p><a href="https://openweathermap.org">Open Weather Map</a></p>
       <p><a href="https://www.pexels.com">Pexels</a></p>
+      <p>
+        <a
+          href="https://console.cloud.google.com/marketplace/product/google/places-backend.googleapis.com?q=search&referrer=search&project=rich-bonfire-373612"
+          >Google Cloud</a
+        >
+      </p>
       <p>&copy; 2023 Ioan Adafinei</p>
-
     </footer>
 
     <script>
@@ -50,6 +57,7 @@
         event.preventDefault();
         const location = document.querySelector("#location-input").value;
         fetchWeatherData(location);
+        fetchForecastData(location);
       });
 
       var options = {

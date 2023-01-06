@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap");
 
-.subdiv2 {
+.subdiv5 {
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #spinner:not([hidden]) {
@@ -99,4 +99,13 @@ button:hover {
 
 .cityimg{
   width: 72.4vw;
+}
+
+.conditions{
+  width: 12vw;
+}
+
+.large{
+  font-size: 7vw;
+  color: rgb(0, 20, 201);
 }
