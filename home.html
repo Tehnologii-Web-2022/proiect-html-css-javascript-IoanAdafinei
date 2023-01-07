@@ -64,6 +64,12 @@
         types: ["(cities)"],
       };
 
+      window.onload = function() {
+        var input = document.getElementById('location-input');
+        input.focus();
+        input.select();
+      }
+
       var input = document.getElementById("location-input");
       var autocomplete = new google.maps.places.Autocomplete(input, options);
     </script>
