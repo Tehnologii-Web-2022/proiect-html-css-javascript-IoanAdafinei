@@ -3,7 +3,7 @@ const page_num = 1;
 
 async function searchPhotos(query, page_num) {
   const data = await fetch(
-    `https://api.pexels.com/v1/search?query=${query}&per_page=${page_num}`,
+    `https://api.pexels.com/v1/search?query=${query}&per_page=${page_num}$size=large`,
     {
       method: "GET",
       headers: {
@@ -47,7 +47,7 @@ function fetchWeatherData(location) {
       searchPhotos(location, page_num);
 
       weatherDataElement.innerHTML = `
-              <p class="centered">The weather in ${location} is currently ${
+              <p class="centered">The weather in ${data.name} is currently ${
         data.weather[0].description
       } </p><p class="temp"><img src = "http://openweathermap.org/img/wn/${id_condition}@2x.png" class="conditions">
               ${tmp - 273}°C</p>
